@@ -12,11 +12,9 @@ import RequestPage from './RequestPage';
 import Department from './department';
 import Login from './login.js';
 import Register from './register.js';
-import incubation from './assets/hel.png'; 
+
 import View from './view';
 import './App.css'; 
-import './responsive-enhancements.css';
-import './mobile.css';
 import Dashboard from './Dashboard';
 
 function App() {
@@ -39,11 +37,7 @@ function App() {
       if (img) img.src = imgSrc;
     };
 
-    const changeCircleColor = (color) => {
-      const circle = document.querySelector('.circle');
-      if (circle) circle.style.backgroundColor = color;
-    };
-
+   
     const handleLoginClick = () => {
       navigate('/login');
     };
@@ -56,13 +50,11 @@ function App() {
 
     return (
       <>
-      <div className='bod'>
+      <div className='appfr'>
         <div className={`overlay ${!overlayVisible ? 'fade-out' : ''}`}></div>
-        
+        <section>
           <div className="circle"></div>
-          
           <header>
-          
             <a href="#">
               <img
                 src="https://sairamgroup.in/wp-content/themes/sairamgroup/images/logo.gif"
@@ -71,12 +63,10 @@ function App() {
               />
             </a>
             <ul>
-              <div className='ul-li'>
               <li><a href="#">Home</a></li>
               <li><a href="#">Contact us</a></li>
-              <li><a href="#">Privacy policy</a></li></div>
-              <div className='log-but'>
-              <button className='button' onClick={handleLoginClick}>LOG IN</button></div>
+              <li><a href="#">Privacy policy</a></li>
+            <div className='log-btn'>  <button className='button' onClick={handleLoginClick}>LOG IN</button></div>
             </ul>
           </header>
           <div className="containers">
@@ -90,10 +80,30 @@ function App() {
               <a onClick={handleExploreClick}>Explore</a>
             </div>
             <div className="img-box">
-            <img src={incubation} alt="Incubation Logo" className="incubation" />
+              <img
+                src="https://sairamincubation.com/_next/image?url=%2Fincubator-logo.png&w=3840&q=75"
+                alt="incubation"
+              />
             </div>
           </div>
-         
+          <ul className="thumb">
+            <li>
+              
+            </li>
+            <li>
+              <img
+                
+                onClick={() => {
+                  imgSlider('https://raw.githubusercontent.com/farazc60/Project-Images/main/starbucks/img2.png');
+                  
+                }}
+                
+              />
+            </li>
+            <li>
+              
+            </li>
+          </ul>
           <ul className="social">
             <li>
               <a href="#">
@@ -120,7 +130,7 @@ function App() {
               </a>
             </li>
           </ul>
-          </div>
+        </section></div>
       </>
     );
   };
