@@ -40,7 +40,7 @@ function Login() {
       alert("Passwords do not match");
       return;
     }
-    axios.post('https://backend-iuq5.vercel.app/api/register', { username, email, password, department, college })
+    axios.post('http://localhost:8081/register', { username, email, password, department, college })
       .then(() => {
         alert('Registration request sent to admin. Please wait for approval.');
         navigate('/login'); 
@@ -55,10 +55,10 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('https://backend-iuq5.vercel.app/api/login', { email, password })
+    axios.post('http://localhost:8081/login', { email, password })
       .then(res => {
-       localStorage.setItem('token', res.data.token);
-      localStorage.setItem('department', res.data.department); // Store department
+        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('department', res.data.department); // Store department
         alert('Login successful. Redirecting to dashboard...');
         navigate(`/dashboard`, { state: { location: res.data.department } }); // Redirect to Dashboard.js
       })
